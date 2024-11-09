@@ -1,6 +1,7 @@
 package com.upiiz.equipo.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class Competencia {
     @NotBlank
     private String fin;
 
+    @JsonIgnoreProperties("competencia")
     @OneToMany(mappedBy = "competencia", cascade = CascadeType.ALL)
     private List<EquipoCompetencia> equipoCompetencias;
 }

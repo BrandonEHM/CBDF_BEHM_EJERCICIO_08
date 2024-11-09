@@ -1,5 +1,6 @@
 package com.upiiz.equipo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,7 @@ public class Liga {
     private String presidente;
 
 
-
+    @JsonIgnoreProperties("liga")
     @OneToMany(mappedBy = "liga", fetch = FetchType.LAZY)
     private List<Equipo> equipos;
 }

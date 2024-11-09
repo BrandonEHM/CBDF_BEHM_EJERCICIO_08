@@ -1,5 +1,6 @@
 package com.upiiz.equipo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class Jugador {
     private String posicion;
 
 /**/
+@JsonIgnoreProperties("jugadores")
     @ManyToOne
     @JoinColumn(name = "equipo_id")
     private Equipo equipo;

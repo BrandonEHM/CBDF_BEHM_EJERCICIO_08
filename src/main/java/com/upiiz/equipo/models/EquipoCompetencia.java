@@ -1,5 +1,6 @@
 package com.upiiz.equipo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,10 +17,12 @@ public class EquipoCompetencia {
     private Long id;
 
     /**/
+    @JsonIgnoreProperties("equipoCompetencias")
     @ManyToOne
     @JoinColumn(name = "equipo_id")
     private Equipo equipo;
     /**/
+    @JsonIgnoreProperties("equipoCompetencias")
     @ManyToOne
     @JoinColumn(name = "competencia_id")
     private Competencia competencia;
